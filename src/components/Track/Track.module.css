@@ -1,0 +1,14 @@
+.Track {
+    margin: 10px 0;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+.TrackInfo {
+    text-align: left;
+}
+
+.TrackAction {
+    float: right;
+    font-size: 1.5rem;
+}

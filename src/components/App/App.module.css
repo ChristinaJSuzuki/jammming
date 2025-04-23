@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+}
+
+.AppPlaylist {
+  display: flex;
+  justify-content: space-between;
+}
