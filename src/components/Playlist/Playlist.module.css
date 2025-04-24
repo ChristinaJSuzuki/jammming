@@ -1,3 +1,19 @@
-.Playlist {
-    width: 45%;
+.Playlist input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Playlist input:focus {
+    border-color: #fcd12a;
+    box-shadow: 0 0 0 4px rgba(252, 209, 42, 0.3);
+}
+
+.Playlist input:hover {
+    border-color: #fcd12a;
 }
