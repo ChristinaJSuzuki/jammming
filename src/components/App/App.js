@@ -30,6 +30,12 @@ function App() {
     setPlaylistTracks((prevTracks) => [...prevTracks, track]);
   };
 
+  const removeTrack = (track) => {
+    setPlaylistTracks((prevTracks) =>
+      prevTracks.filter((savedTrack) => savedTrack.id !== track.id)
+    );
+  };
+
   const handleSearch = () => {
     const fakeResults = [
       {
@@ -61,7 +67,11 @@ function App() {
       <SearchBar onSearch={handleSearch} />
       <div className={styles.AppPlaylist}>
         <SearchResults searchResults={searchResults} onAdd={addTrack} />
-        <Playlist playlistName={playlistName} playlistTracks={playlistTracks} />
+        <Playlist
+          playlistName={playlistName}
+          playlistTracks={playlistTracks}
+          onRemove={removeTrack}
+        />
       </div>
     </div>
   );

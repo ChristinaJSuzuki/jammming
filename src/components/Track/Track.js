@@ -1,9 +1,13 @@
 import React from "react";
 import styles from "./Track.module.css";
 
-function Track({ track, onAdd, isRemoval }) {
+function Track({ track, onAdd, onRemove, isRemoval }) {
   const addTrack = () => {
     onAdd(track);
+  };
+
+  const removeTrack = () => {
+    onRemove(track);
   };
 
   return (
@@ -14,7 +18,11 @@ function Track({ track, onAdd, isRemoval }) {
           {track.artist} | {track.album}
         </p>
       </div>
-      {!isRemoval && (
+      {isRemoval ? (
+        <button className={styles.TrackAction} onClick={removeTrack}>
+          -
+        </button>
+      ) : (
         <button className={styles.TrackAction} onClick={addTrack}>
           +
         </button>
