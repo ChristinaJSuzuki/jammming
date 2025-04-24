@@ -36,6 +36,10 @@ function App() {
     );
   };
 
+  const updatePlaylistName = (name) => {
+    setPlaylistName(name);
+  };
+
   const handleSearch = () => {
     const fakeResults = [
       {
@@ -71,6 +75,7 @@ function App() {
           playlistName={playlistName}
           playlistTracks={playlistTracks}
           onRemove={removeTrack}
+          onNameChange={updatePlaylistName}
         />
       </div>
     </div>
