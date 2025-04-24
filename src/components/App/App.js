@@ -5,33 +5,56 @@ import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
 
 function App() {
-  const [SearchResults, setSearchResults] = useState([
+  const [searchResults, setSearchResults] = useState([]);
+
+  const [playlistName, setPlaylistName] = useState("My Awesome Playlist");
+  const [playlistTracks, setPlaylistTracks] = useState([
     {
-      id: 1,
-      name: "Track One",
-      artist: "Artist A",
-      album: "Album A",
+      id: 4,
+      name: "Playlist Track One",
+      artist: "Playlist Artist A",
+      album: "Playlist Album A",
     },
     {
-      id: 2,
-      name: "Track Two",
-      artist: "Artist B",
-      album: "Album B",
-    },
-    {
-      id: 3,
-      name: "Track Three",
-      artist: "Artist C",
-      album: "Album C",
+      id: 5,
+      name: "Playlist Track Two",
+      artist: "Playlist Artist B",
+      album: "Playlist Album B",
     },
   ]);
 
+  const handleSearch = () => {
+    const fakeResults = [
+      {
+        id: 1,
+        name: "Track One",
+        artist: "Artist A",
+        album: "Album A",
+      },
+      {
+        id: 2,
+        name: "Track Two",
+        artist: "Artist B",
+        album: "Album B",
+      },
+      {
+        id: 3,
+        name: "Track Three",
+        artist: "Artist C",
+        album: "Album C",
+      },
+    ];
+
+    setSearchResults(fakeResults);
+  };
+
   return (
     <div className={styles.App}>
-      <SearchBar />
+      <h1>Jammming 🎧</h1>
+      <SearchBar onSearch={handleSearch} />
       <div className={styles.AppPlaylist}>
-        <SearchResults SearchResults={SearchResults} />
-        <Playlist />
+        <SearchResults searchResults={searchResults} />
+        <Playlist playlistName={playlistName} playlistTracks={playlistTracks} />
       </div>
     </div>
   );
