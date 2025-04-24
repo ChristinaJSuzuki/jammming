@@ -2,12 +2,12 @@ import React from "react";
 import styles from "./TrackList.module.css";
 import Track from "../Track/Track";
 
-function TrackList() {
+function TrackList({ tracks }) {
   return (
     <div className={styles.TrackList}>
-      <Track />
-      <Track />
-      <Track />
+      {tracks.map((track) => (
+        <Track key={track.id} track={track} />
+      ))}
     </div>
   );
 }
