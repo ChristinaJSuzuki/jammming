@@ -23,6 +23,13 @@ function App() {
     },
   ]);
 
+  const addTrack = (Track) => {
+    if (playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
+      return;
+    }
+    setPlaylistTracks((prevTracks) => [...prevTracks, track]);
+  };
+
   const handleSearch = () => {
     const fakeResults = [
       {
@@ -53,7 +60,7 @@ function App() {
       <h1>Jammming 🎧</h1>
       <SearchBar onSearch={handleSearch} />
       <div className={styles.AppPlaylist}>
-        <SearchResults searchResults={searchResults} />
+        <SearchResults searchResults={searchResults} onAdd={addTrack} />
         <Playlist playlistName={playlistName} playlistTracks={playlistTracks} />
       </div>
     </div>

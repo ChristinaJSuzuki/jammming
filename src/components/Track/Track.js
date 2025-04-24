@@ -1,16 +1,24 @@
 import React from "react";
 import styles from "./Track.module.css";
 
-function Track({ track }) {
+function Track({ track, onAdd, isRemoval }) {
+  const addTrack = () => {
+    onAdd(track);
+  };
+
   return (
     <div className={styles.Track}>
-      <div className={styles.TrackInfo}>
+      <div className={styles.TrackInformation}>
         <h3>{track.name}</h3>
         <p>
           {track.artist} | {track.album}
         </p>
       </div>
-      <button className={styles.TrackAction}>+</button>
+      {!isRemoval && (
+        <button className={styles.TrackAction} onClick={addTrack}>
+          +
+        </button>
+      )}
     </div>
   );
 }
