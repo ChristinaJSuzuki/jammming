@@ -23,7 +23,7 @@ function App() {
     },
   ]);
 
-  const addTrack = (Track) => {
+  const addTrack = (track) => {
     if (playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
       return;
     }
@@ -34,6 +34,20 @@ function App() {
     setPlaylistTracks((prevTracks) =>
       prevTracks.filter((savedTrack) => savedTrack.id !== track.id)
     );
+  };
+
+  const savePlaylist = () => {
+    const trackUris = [
+      "spotify:track:6rqhFgbbKwnb9MLmUQDhG6",
+      "spotify:track:1dGr1c8CrMLDpV6mPbImSI",
+      "spotify:track:4VqPOruhp5EdPBeR92t6lQ",
+    ];
+
+    console.log("Saving playlist:", playlistName);
+    console.log("Track URIs:", trackUris);
+
+    setPlaylistName("New Playlist");
+    setPlaylistTracks([]);
   };
 
   const updatePlaylistName = (name) => {
@@ -76,6 +90,7 @@ function App() {
           playlistTracks={playlistTracks}
           onRemove={removeTrack}
           onNameChange={updatePlaylistName}
+          onSave={savePlaylist}
         />
       </div>
     </div>

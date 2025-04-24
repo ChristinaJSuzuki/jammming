@@ -2,7 +2,13 @@ import React from "react";
 import styles from "./Playlist.module.css";
 import TrackList from "../TrackList/TrackList";
 
-function Playlist({ playlistName, playlistTracks, onRemove, onNameChange }) {
+function Playlist({
+  playlistName,
+  playlistTracks,
+  onRemove,
+  onNameChange,
+  onSave,
+}) {
   const handleNameChange = (event) => {
     onNameChange(event.target.value);
   };
@@ -11,7 +17,9 @@ function Playlist({ playlistName, playlistTracks, onRemove, onNameChange }) {
     <div className={styles.Playlist}>
       <input value={playlistName} onChange={handleNameChange} />
       <TrackList tracks={playlistTracks} onRemove={onRemove} isRemoval={true} />
-      <button className={styles.PlaylistSave}>SAVE TO SPOTIFY</button>
+      <button className={styles.PlaylistSave} onClick={onSave}>
+        SAVE TO SPOTIFY
+      </button>
     </div>
   );
 }
