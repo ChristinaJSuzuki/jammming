@@ -1,3 +1,4 @@
+import Spotify from "../../util/Spotify";
 import React, { useState } from "react";
 import styles from "./App.module.css";
 import SearchBar from "../SearchBar/SearchBar";
@@ -54,29 +55,9 @@ function App() {
     setPlaylistName(name);
   };
 
-  const handleSearch = () => {
-    const fakeResults = [
-      {
-        id: 1,
-        name: "Track One",
-        artist: "Artist A",
-        album: "Album A",
-      },
-      {
-        id: 2,
-        name: "Track Two",
-        artist: "Artist B",
-        album: "Album B",
-      },
-      {
-        id: 3,
-        name: "Track Three",
-        artist: "Artist C",
-        album: "Album C",
-      },
-    ];
-
-    setSearchResults(fakeResults);
+  const handleSearch = async (term) => {
+    const results = await Spotify.search(term);
+    setSearchResults(results);
   };
 
   return (
